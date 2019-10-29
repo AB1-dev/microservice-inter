@@ -14,7 +14,7 @@ import com.example.BankDetails.entity.Bank;
 @Transactional
 @Repository
 public class BankDAO implements BankDAOImpl{
-	
+
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -32,9 +32,9 @@ public class BankDAO implements BankDAOImpl{
 	 * This method is responsible to get a particular Bank detail by given id 
 	 */
 	@Override
-	public Bank getAccount(int id) {
-		
-		return entityManager.find(Bank.class, id);
+	public Bank getAccount(int Accountnumber) {
+
+		return entityManager.find(Bank.class, Accountnumber);
 	}
 
 	/**
@@ -52,27 +52,20 @@ public class BankDAO implements BankDAOImpl{
 	 */
 	@Override
 	public Bank updateAccount(int id, Bank Bank) {
-		
-		//First We are taking Bank detail from database by given Bank id and 
-		// then updating detail with provided Bank object
-		System.out.println("jk");
+
 		Bank BankFromDB = getAccount(id);
-		System.out.println("oy"+id);
-		BankFromDB.setId(Bank.getId());
+		//BankFromDB.setId(Bank.getId());
 		BankFromDB.setAccountNumber(Bank.getAccountNumber());
-		System.out.println("mk");
 		BankFromDB.setEmail(Bank.getEmail());
 		BankFromDB.setFirstName(Bank.getFirstName());
 		BankFromDB.setLastName(Bank.getLastName());
 		BankFromDB.setAddress1(Bank.getAddress1());
 		BankFromDB.setAddress2(Bank.getAddress2());
 		BankFromDB.setPhone(Bank.getPhone());
-		
+
 		entityManager.flush();
-		
-		//again i am taking updated result of Bank and returning the Bank object
 		Bank updatedBank = getAccount(id);
-		
+
 		return updatedBank;
 	}
 
@@ -84,16 +77,14 @@ public class BankDAO implements BankDAOImpl{
 	public boolean deleteAccount(int id) {
 		Bank Bank = getAccount(id);
 		entityManager.remove(Bank);
-		
-		//we are checking here that whether entityManager contains earlier deleted Bank or not
-		// if contains then Bank is not deleted from DB that's why returning false;
 		boolean status = entityManager.contains(Bank);
 		if(status){
 			return false;
 		}
 		return true;
 	}
-	
+
+
 	/**
 	 * This method will get the latest inserted record from the database and return the object of Bank class
 	 * @return Bank
@@ -105,12 +96,4 @@ public class BankDAO implements BankDAOImpl{
 		Bank Bank = (Bank)query.getSingleResult();
 		return Bank;
 	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Bank> getTotalamount() {
-		String hql = "select bk.Firstname,bk.Lastname,bk.Email,bk.Phone, sum(Amountbalance) as Totalamount from Bank as bk group by bk.Email";
-		return (List<Bank>) entityManager.createQuery(hql).getResultList();
-	}
-
 }

@@ -19,6 +19,7 @@ public class BankService implements BankServiceImpl {
 	@Override
 	public List<Bank> getAllDetails() {
 		// TODO Auto-generated method stub
+		System.out.println("Alert3434");
 		return dao.getAllAccountDetails();
 	}
 
@@ -44,12 +45,6 @@ public class BankService implements BankServiceImpl {
 	public boolean deleteAccount(int id) {
 		// TODO Auto-generated method stub
 		return dao.deleteAccount(id);
-	}
-
-	@Override
-	public List<Bank> gettotal() {
-		// TODO Auto-generated method stub
-		return dao.getTotalamount();
 	}
 
 }

@@ -11,6 +11,5 @@ public interface BankServiceImpl {
 	Bank updateExistingAccount(int id, Bank bank);
 	Bank getAccountDetails(int id);
 	boolean deleteAccount(int id);
-	List<Bank> gettotal();
 
 }

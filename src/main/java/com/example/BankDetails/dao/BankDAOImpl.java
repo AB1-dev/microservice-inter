@@ -11,6 +11,5 @@ public interface BankDAOImpl {
 	Bank createAccount(Bank bank);      
 	Bank updateAccount(int id,Bank bank);
 	boolean deleteAccount(int id);  
-	List<Bank> getTotalamount();
 
 }

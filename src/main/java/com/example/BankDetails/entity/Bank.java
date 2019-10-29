@@ -14,14 +14,6 @@ import javax.persistence.Table;
 @Table(name="bank")
 public class Bank implements Serializable {	
 	
-	/*
-	 * public Bank(int id, int Accountnumber, String Email, String Firstname, String
-	 * Lastname, String Phone, String Address1, String Address2, int Amountbalance)
-	 * { this.id = id; this.Accountnumber = Accountnumber; this.Email = Email;
-	 * this.Firstname = Firstname; this.Lastname = Lastname; this.Phone = Phone;
-	 * this.Address1 = Address1; this.Address2 = Address2; this.Amountbalance =
-	 * Amountbalance; }
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id

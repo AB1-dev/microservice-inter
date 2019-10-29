@@ -15,36 +15,13 @@ public class BankService implements BankServiceImpl {
 	@Autowired
 	private BankDAOImpl dao;
 
-
 	@Override
-	public List<Bank> getAllDetails() {
+	public List<Bank> getTotalAmount() {
 		// TODO Auto-generated method stub
-		System.out.println("Alert3434");
-		return dao.getAllAccountDetails();
+		return dao.getTotalAmount();
 	}
 
-	@Override
-	public Bank createNewAccount(Bank bank) {
-		// TODO Auto-generated method stub
-		return dao.createAccount(bank);
-	}
 
-	@Override
-	public Bank updateExistingAccount(int id, Bank bank) {
-		// TODO Auto-generated method stub
-		return dao.updateAccount(id, bank);
-	}
-
-	@Override
-	public Bank getAccountDetails(int id) {
-		// TODO Auto-generated method stub
-		return dao.getAccount(id);
-	}
-
-	@Override
-	public boolean deleteAccount(int id) {
-		// TODO Auto-generated method stub
-		return dao.deleteAccount(id);
-	}
+	
 
 }

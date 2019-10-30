@@ -1,6 +1,6 @@
 # microservice-inter
 
-This Micro servic is to create a REST Api to find the total amount of all the customers and return a list of all the customers.
+This Micro service is to create a REST Api to find the total amount of all the customers and return a list of all the customers using springboot.
 
 #Get request to get total amount as list:
 ------------------------------------------
